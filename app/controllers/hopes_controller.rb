@@ -1,0 +1,2 @@
+class HopesController < ApplicationController
+end
