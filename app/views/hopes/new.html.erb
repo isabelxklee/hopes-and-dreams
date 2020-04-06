@@ -1,0 +1,19 @@
+<h1>
+    Create a new hope
+</h1>
+
+<%= form_for @hope do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <br>
+
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+    <br>
+
+    <%= f.submit "Create" %>
+<% end %>
