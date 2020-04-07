@@ -37,6 +37,12 @@ class HopesController < ApplicationController
         redirect_to @hope
     end
 
+    def delete
+        find_hope
+        @hope.destroy
+        redirect_to hopes_path
+    end
+
     private
     def find_hope
         @hope = Hope.find(params[:id])

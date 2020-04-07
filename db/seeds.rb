@@ -8,6 +8,6 @@
 
 Hope.destroy_all
 
-Hope.create(title: "first job as a software engineer", description: "i hope i can get an awesome job after i graduate from flatiron school.", category: "career")
-Hope.create(title: "coronavirus", description: "i hope that the coronavirus pandemic will end soon.", category: "world news")
-Hope.create(title: "cat", description: "i hope that my cat is happy.", category: "pet")
+Hope.create(title: "My first job as a software engineer", description: "I hope I can get an awesome job after graduating from Flatiron School.", category: "career")
+Hope.create(title: "Coronavirus pandemic", description: "I hope the Coronavirus pandemic will end soon.", category: "world news")
+Hope.create(title: "Cat happiness", description: "I hope that my cat is happy.", category: "pet")

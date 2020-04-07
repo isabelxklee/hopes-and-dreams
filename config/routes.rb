@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "/hopes/:id", to: "hopes#show", as: "hope"
   get "/hopes/:id/edit", to: "hopes#edit", as: "edit_hope"
   patch "/hopes/:id", to: "hopes#update"
+  delete "/hopes/:id", to: "hopes#delete"
 end
