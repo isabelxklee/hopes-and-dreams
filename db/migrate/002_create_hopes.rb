@@ -4,7 +4,7 @@ class CreateHopes < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :description
       t.string :category
-
+      t.belongs_to :user
       t.timestamps
     end
   end
