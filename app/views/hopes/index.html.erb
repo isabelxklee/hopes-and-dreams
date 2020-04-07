@@ -2,13 +2,18 @@
     All my hopes
 </h1>
 
-<% @hopes.each { |hope| %>
-    <ul>
-    <li>
-        <%= link_to hope[:title], hope %>
-    </li>
-    </ul>
-<% } %>
-<br>
+<% if @hopes.length > 0 %>
+    You have <%= @hopes.length %> hope(s).
+    <% @hopes.each { |hope| %>
+        <ul>
+        <li>
+            <%= link_to hope[:title], hope %>
+        </li>
+        </ul>
+    <% } %>
+    <br>
+<% else %>
+    You have no hopes yet.<br>
+<% end %><br>
 
 <%= link_to "Add a new hope", new_hope_path %>
