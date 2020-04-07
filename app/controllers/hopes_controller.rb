@@ -4,7 +4,7 @@ class HopesController < ApplicationController
     end
 
     def show
-        @hope = Hope.find(params[:id])
+        find_hope
         convert_time(@hope[:created_at])
     end
 
@@ -23,5 +23,22 @@ class HopesController < ApplicationController
         )
 
         redirect_to @hope
+    end
+
+    def edit
+        find_hope
+    end
+
+    def update
+        find_hope
+        @hope.update(
+            params.require(:hope).permit(:title, :description, :category)
+        )
+        redirect_to @hope
+    end
+
+    private
+    def find_hope
+        @hope = Hope.find(params[:id])
     end
 end

@@ -1,3 +1,14 @@
 <h1>
     All my hopes
 </h1>
+
+<% @hopes.each { |hope| %>
+    <ul>
+    <li>
+        <%= link_to hope[:title], hope %>
+    </li>
+    </ul>
+<% } %>
+<br>
+
+<%= link_to "Add a new hope", new_hope_path %>

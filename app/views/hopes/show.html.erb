@@ -2,3 +2,7 @@
 <p>Description: <%= @hope[:description] %></p>
 <p>Category: <%= @hope[:category] %></p>
 <p>Created at: <%= @time %> on <%= @date %></p>
+
+<%= link_to "Edit", edit_hope_path(@hope) %><br>
+
+<%= link_to "Back to all hopes", hopes_path %>
