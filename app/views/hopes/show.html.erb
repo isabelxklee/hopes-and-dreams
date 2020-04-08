@@ -4,6 +4,6 @@
 <p>Created on: <%= @time %> on <%= @date %></p>
 
 <%= link_to "Edit", edit_hope_path(@hope) %><br>
-<%= button_to "Destroy hope", @hope, method: :delete %>
+<%= button_to "Destroy hope", @hope, method: :destroy %>
 
 <%= link_to "Back to all hopes", hopes_path %>

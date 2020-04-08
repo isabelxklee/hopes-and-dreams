@@ -18,11 +18,13 @@ class HopesController < ApplicationController
     end
 
     def create
-        @hope = Hope.create(
-            params.require(:hope).permit(:title, :description, :category)
-        )
+        @hope = Hope.new(hope_params)
 
-        redirect_to @hope
+        if @hope.save
+            redirect_to @hope
+        else
+            render :new
+        end
     end
 
     def edit
@@ -31,20 +33,22 @@ class HopesController < ApplicationController
 
     def update
         find_hope
-        @hope.update(
-            params.require(:hope).permit(:title, :description, :category)
-        )
+        @hope.update(hope_params)
         redirect_to @hope
     end
 
-    def delete
+    def destroy
         find_hope
         @hope.destroy
-        redirect_to hopes_path
+        redirect_to @hopes
     end
 
     private
     def find_hope
         @hope = Hope.find(params[:id])
+    end
+
+    def hope_params
+        params.require(:hope).permit(:title, :description, :category)
     end
 end

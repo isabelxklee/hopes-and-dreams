@@ -3,7 +3,7 @@
 </h1>
 
 <% if @hopes.length > 0 %>
-    You have <%= @hopes.length %> hope(s).
+    You have <%= pluralize(@hopes.count, 'hope') %>.
     <% @hopes.each { |hope| %>
         <ul>
         <li>
