@@ -3,6 +3,10 @@
 </h1>
 
 <%= form_for @hope do |f| %>
+    <%= f.label "Select a user" %>
+    <%= f.select :user_id, options_from_collection_for_select(User.all, "id", "name") %>
+    <br>
+
     <%= f.label :title %>
     <%= f.text_field :title %>
     <br>

@@ -20,7 +20,8 @@ class HopesController < ApplicationController
     def create
         @hope = Hope.new(hope_params)
 
-        if @hope.save
+        if @hope.valid?
+            @hope.save
             redirect_to @hope
         else
             render :new
@@ -40,7 +41,7 @@ class HopesController < ApplicationController
     def destroy
         find_hope
         @hope.destroy
-        redirect_to @hopes
+        redirect_to @hope.user
     end
 
     private
@@ -49,6 +50,6 @@ class HopesController < ApplicationController
     end
 
     def hope_params
-        params.require(:hope).permit(:title, :description, :category)
+        params.require(:hope).permit(:title, :description, :category, :user_id)
     end
 end

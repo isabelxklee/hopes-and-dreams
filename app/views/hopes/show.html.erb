@@ -1,9 +1,10 @@
 <h1><%= @hope[:title] %></h1>
+<p>User: <%= @hope.user.name %></p>
 <p>Description: <%= @hope[:description] %></p>
 <p>Category: <%= @hope[:category] %></p>
 <p>Created on: <%= @time %> on <%= @date %></p>
 
 <%= link_to "Edit", edit_hope_path(@hope) %><br>
-<%= button_to "Destroy hope", @hope, method: :destroy %>
+<%= button_to "Destroy hope", @hope, method: :delete %>
 
-<%= link_to "Back to all hopes", hopes_path %>
+<%= link_to "Back to #{@hope.user.name}", @hope.user %>

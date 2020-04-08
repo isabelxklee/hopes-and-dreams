@@ -1,0 +1,16 @@
+<h1>
+    All users
+</h1>
+
+<% @users.each { |user| %>
+    <ul>
+    <li>
+        <%= link_to user[:name], user %>
+    </li>
+    </ul>
+<% } %>
+<br>
+
+<%= link_to "Add a new user", new_user_path %><br>
+<%= link_to "Add a new hope", new_hope_path %><br>
+<%= link_to "Add a new dream", new_dream_path %>

@@ -1,0 +1,10 @@
+<h1>Edit user</h1>
+
+<%= form_for @user do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.submit "Save" %>
+<% end %><br>
+
+<%= link_to "Cancel", user_path(@user) %>
