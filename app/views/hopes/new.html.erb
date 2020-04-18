@@ -1,25 +1,30 @@
-<h1>
-    Create a new hope
-</h1>
+<div class="body">
+  
+    <%= form_for @hope, html: { class: "form" } do |f| %>
+    <h1 class="form-header">Log a new hope</h1>
 
-<%= form_for @hope do |f| %>
-    <%= f.label "Select a user" %>
-    <%= f.select :user_id, options_from_collection_for_select(User.all, "id", "name") %>
-    <br>
+        <% if flash[:error] %>
+        <ul>
+            <li class="error"><%= flash[:error] %></li>
+        </ul>
+        <% end %>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <br>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <br>
 
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <br>
+        <%= f.collection_select(:category_id, Category.all, :id, :title, prompt: true) %><br>
 
-    <%= f.label :category %>
-    <%= f.text_field :category %>
-    <br>
+        <%= f.label :date %>
+        <%= f.text_field :date %>
+        <br>
 
-    <%= f.submit "Create" %>
-<% end %><br>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+        <br>
 
-<%= link_to "Cancel", hopes_path %>
+        <%= f.submit "Create hope" %>
+    <% end %><br>
+
+    <%= link_to "Cancel", hopes_path %>
+</div>

@@ -10,30 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+  end
 
   create_table "dreams", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.string "duration"
-    t.integer "user_id"
+    t.datetime "date"
+    t.datetime "time"
+    t.string "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_dreams_on_user_id"
   end
 
   create_table "hopes", force: :cascade do |t|
     t.string "title"
+    t.integer "category_id"
     t.string "description"
-    t.string "category"
+    t.datetime "date"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_hopes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "email_address"
+    t.string "password_digest"
   end
 
 end

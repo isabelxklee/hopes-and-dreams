@@ -1,13 +1,29 @@
-<h1>
-    Create a new user
-</h1>
+<div class="body">
+  
+    <%= form_for @user, html: { class: "form" } do |f| %>
+    <h1 class="form-header">Create an account</h1>
 
-<%= form_for @user do |f| %>
+        <% if flash[:error] %>
+        <ul>
+            <li class="error"><%= flash[:error] %></li>
+        </ul>
+        <% end %>
+
     <%= f.label :name %>
-    <%= f.text_field :name %>
-    <br>
+    <%= f.text_field :name %><br>
 
-    <%= f.submit "Create" %>
-<% end %><br>
+    <%= f.label :email_address %>
+    <%= f.text_field :email_address %><br>
 
-<%= link_to "Cancel", users_path %>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+
+    <%= f.label "Confirm password" %>
+    <%= f.password_field :password_confirmation %><br>
+
+    <div class="btn-group">
+        <%= button_tag "Create", class: "button" %>
+    </div>
+        
+    <% end %>
+</div>
